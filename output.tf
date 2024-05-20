@@ -24,5 +24,10 @@ output "secret_access_key" {
   sensitive   = true
 }
 
+output "domain_certificate_arn" {
+  value       = var.create_custom_domain ? module.dns[0].certificate_arn : null
+  description = "The ARN of the domain certificate"
+}
+
 # to view sensitive secret, try
 # terraform output secret_access_key

@@ -18,7 +18,7 @@ variable "aws_region" {
 
 variable "create_custom_domain" {
   type        = bool
-  description = "(OPTIONAL) Whether to use a custom domain or not"
+  description = "(OPTIONAL) Whether to use a custom domain or not."
   default     = false
 }
 
