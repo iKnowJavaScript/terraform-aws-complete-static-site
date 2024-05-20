@@ -36,7 +36,7 @@ resource "aws_s3_bucket_policy" "s3policyforOAI" {
         Effect   = "Allow",
         Resource = "${aws_s3_bucket.static_bucket.arn}/*",
         Principal = {
-          AWS = "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${aws_cloudfront_origin_access_identity.newOAI.id}"
+          AWS = "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${module.cloudfront.oai_id}"
         }
       }
     ]

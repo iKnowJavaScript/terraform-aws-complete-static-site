@@ -26,16 +26,14 @@ variable "hosted_zone_domain" {
   type        = string
   description = "(OPTIONAL) Hosted zone to add doamin and cloufront Cname to"
   nullable    = true
-  validation {
-    condition     = var.create_custom_domain && var.hosted_zone_domain == null
-    error_message = "INVALID HOSTED ZONE | Ensure you have set the create_custom_domain to 'false' or you'll have to set valid value for your hosted zone."
-  }
+  default     = ""
 }
 
 variable "custom_domain_name" {
   type        = string
   description = "(OPTIONAL) Custom domain name. should be a sub.domain to the main domain available on the hosted zone or ''(empty string) to use the domain on hosted zone."
   nullable    = true
+  default     = ""
 }
 
 variable "tags" {

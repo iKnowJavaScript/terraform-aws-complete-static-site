@@ -32,3 +32,10 @@ variable "domain_certificate_arn" {
   default     = null
   nullable    = true
 }
+
+
+variable "aws_us_region" {
+  type        = string
+  description = "US AWS region."
+  default     = "us-east-1"
+}

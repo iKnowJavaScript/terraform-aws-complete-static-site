@@ -60,7 +60,7 @@ resource "aws_cloudfront_distribution" "static_content_distribution" {
     }
   }
 
-  aliases = [var.create_custom_domain ? var.custom_domain_name : null]
+  aliases = var.create_custom_domain ? [var.custom_domain_name] : []
 
 
   dynamic "viewer_certificate" {
@@ -84,6 +84,6 @@ resource "aws_cloudfront_distribution" "static_content_distribution" {
 
   web_acl_id = aws_wafv2_web_acl.web_acl.arn
 
-  tags                              = var.tags
+  tags = var.tags
 }
 

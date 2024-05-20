@@ -1,14 +1,7 @@
-data "aws_route53_zone" "main_domain" {
-  name         = "${var.hosted_zone_domain}."
-  private_zone = false
-}
-
 resource "aws_route53_record" "domain_record" {
-  zone_id = data.aws_route53_zone.main_domain.zone_id
+  zone_id = var.hosted_zone_id
   name    = var.custom_domain_name
   type    = "A"
-  # ttl     = "300"
-  # records = [aws_cloudfront_distribution.static_content_distribution.domain_name]
 
   alias {
     name                   = var.cloudflare_domain 
@@ -47,7 +40,7 @@ resource "aws_route53_record" "domain_dns_validation" {
   }
 
   allow_overwrite = true
-  zone_id         = data.aws_route53_zone.main_domain.zone_id
+  zone_id         = var.hosted_zone_id
   name            = each.value.name
   type            = each.value.type
   records         = [each.value.record]

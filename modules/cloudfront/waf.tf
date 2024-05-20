@@ -1,3 +1,8 @@
+provider "aws" {
+  alias  = "us_provider"
+  region = var.aws_us_region
+}
+
 # WAF Web ACL
 resource "aws_wafv2_web_acl" "web_acl" {
   name        = "${var.name}-waf"
@@ -43,4 +48,6 @@ resource "aws_wafv2_web_acl" "web_acl" {
   }
 
   tags = var.tags
+  
+  provider = aws.us_provider
 }

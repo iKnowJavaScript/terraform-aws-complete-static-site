@@ -1,6 +1,6 @@
-variable "hosted_zone_domain" {
+variable "hosted_zone_id" {
   type        = string
-  description = "Hosted zone to add doamin and cloufront Cname to"
+  description = "Hosted zone id to add doamin and cloufront Cname to"
 }
 
 variable "custom_domain_name" {
