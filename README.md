@@ -1,7 +1,8 @@
 
 # Terraform AWS Complete Static Site Module
 
-[![Terraform](https://img.shields.io/badge/Terraform-0.12.0-623CE4)](https://www.terraform.io)
+[![Terraform registry](https://img.shields.io/badge/Terraform_Registry-0.0.2-blue)](https://registry.terraform.io/modules/iKnowJavaScript/complete-static-site/aws/latest)
+[![Terraform](https://img.shields.io/badge/Terraform-0.0.2-623CE4)](https://www.terraform.io)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 This Terraform module consist the configuration for hosting a static website on AWS. It creates and configures the necessary AWS resources including S3, Route 53 (DNS), IAM, CloudFront, and WAF.
@@ -18,6 +19,7 @@ This module provisions:
 - IAM user
 - S3 bucket
 
+### Architecture Diagram
 ![image](assets/diagram.png)
 
 ## Usage
@@ -25,7 +27,7 @@ This module provisions:
 ### Example with a custom domain (sub domain)
 ```hcl
 module "frontend" {
-  source = "github.com/iKnowJavaScript/terraform-aws-complete-static-site"
+  source  = "iKnowJavaScript/complete-static-site/aws"
 
   name                 = "example-website"
   environment          = "prod"
@@ -44,7 +46,7 @@ provider "aws" {
 ### Example with default CloudFlare domain
 ```hcl
 module "frontend" {
-  source = "github.com/iKnowJavaScript/terraform-aws-complete-static-site"
+  source  = "iKnowJavaScript/complete-static-site/aws"
 
   name                 = "example-website"
   environment          = "prod"
